@@ -19094,7 +19094,7 @@ static void hdd_print_netdev_txq_status(struct net_device *dev)
 	}
 }
 #else
-#define hdd_print_netdev_txq_status(dev) (0)
+#define hdd_print_netdev_txq_status(dev)
 #endif
 
 /**
