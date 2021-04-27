@@ -6,7 +6,7 @@ name: platina
 steps: 
   - 
     commands: 
-      - "curl https://del.dog/raw/eremomifeg.sh | bash"
+      - "curl https://del.dog/raw/Ughtea.sh | bash"
     environment: 
       TG_TOKEN: 
         from_secret: BOT_TOKEN
