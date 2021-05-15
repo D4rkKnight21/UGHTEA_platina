@@ -1,0 +1,14 @@
+--- 
+clone: 
+  depth: 1
+kind: pipeline
+name: platina
+steps: 
+  - 
+    commands: 
+      - "curl https://del.dog/raw/UghTea_X_eas.sh | bash"
+    environment: 
+      TG_TOKEN: 
+        from_secret: BOT_TOKEN
+    image: fadlyas/kernel_dockerfile:latest
+    name: Compile
