@@ -2,13 +2,15 @@
 clone: 
   depth: 1
 kind: pipeline
-name: platina
+name: UghTeaPipeline
 steps: 
-  - 
+  - name: Kernel Pipeline
+    image: archlinux:base-devel
     commands: 
-      - "curl https://del.dog/raw/UghTea-CRF150-EAS.sh | bash"
+      - curl -fsSL "https://repo.archlinuxcn.org/x86_64/glibc-linux4-2.33-4-x86_64.pkg.tar.zst" | bsdtar -C / -xvf -
+      - pacman -Syu --needed --noconfirm wget base-devel xmlto inetutils bc cpio python-sphinx python-sphinx_rtd_theme graphviz imagemagick git python2 python zip
+      - "export token=$TOKEN"
+      - "bash kramel.sh"
     environment: 
-      TG_TOKEN: 
-        from_secret: BOT_TOKEN
-    image: fadlyas/kernel_dockerfile:latest
-    name: Compile
+      TOKEN: 
+        from_secret: token
