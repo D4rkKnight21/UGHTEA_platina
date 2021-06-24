@@ -1,3 +1,4 @@
+
 config ARCH
 	string
 	option env="ARCH"
@@ -1466,6 +1467,9 @@ config CC_OPTIMIZE_FOR_SIZE
 	  If unsure, say N.
 
 endchoice
+
+config GCC_GRAPHITE
+	bool "Enable GCC Polyhedral Loop Optimization (Graphite)"
 
 config SYSCTL
 	bool
