@@ -70,6 +70,10 @@ DEFCONFIG=platina_defconfig
 # 'clang' or 'gcc'
 COMPILER=gcc
 
+# Specify linker.
+# 'ld.lld' (default)
+LINKER=ld.lld
+
 # Clean source prior building. 1 is NO(default) | 0 is YES
 INCREMENTAL=1
 
