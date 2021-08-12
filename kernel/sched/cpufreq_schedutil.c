@@ -761,6 +761,7 @@ static int sugov_init(struct cpufreq_policy *policy)
         	                                CONFIG_SCHEDUTIL_UP_RATE_LIMIT_BIG;
                 	tunables->down_rate_limit_us =
                         	                CONFIG_SCHEDUTIL_DOWN_RATE_LIMIT_BIG;
+			tunables->iowait_boost_enable = 0;
         	}
 
 		if (cpumask_test_cpu(policy->cpu, cpu_lp_mask)) {
@@ -768,6 +769,7 @@ static int sugov_init(struct cpufreq_policy *policy)
                         	                CONFIG_SCHEDUTIL_UP_RATE_LIMIT_LITTLE;
 	                tunables->down_rate_limit_us =
         	                                CONFIG_SCHEDUTIL_DOWN_RATE_LIMIT_LITTLE;
+			tunables->iowait_boost_enable = 1;
 	        }
 
 		lat = policy->cpuinfo.transition_latency / NSEC_PER_USEC;
@@ -776,8 +778,6 @@ static int sugov_init(struct cpufreq_policy *policy)
                         tunables->down_rate_limit_us *= lat;
                 }
 	}
-
-	tunables->iowait_boost_enable = policy->iowait_boost_enable;
 
 	policy->governor_data = sg_policy;
 	sg_policy->tunables = tunables;
