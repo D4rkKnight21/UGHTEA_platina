@@ -72,7 +72,7 @@ COMPILER=gcc
 
 # Specify linker.
 # 'ld.lld' (default)
-LINKER=ld.lld
+LD=aarch64-elf-ld.lld
 
 # Clean source prior building. 1 is NO(default) | 0 is YES
 INCREMENTAL=1
