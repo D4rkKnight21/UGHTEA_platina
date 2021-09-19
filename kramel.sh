@@ -47,7 +47,7 @@ KERNEL_DIR="$(pwd)"
 BASEDIR="$(basename "$KERNEL_DIR")"
 
 # The name of the Kernel, to name the ZIP
-ZIPNAME="UghTea-GCC"
+ZIPNAME="UGHTEA-GCC"
 
 # Build Author
 # Take care, it should be a universal and most probably, case-sensitive
@@ -158,7 +158,7 @@ KERVER=$(make kernelversion)
 COMMIT_HEAD=$(git log --oneline -1)
 
 # Set Date 
-DATE=$(TZ=Asia/Jakarta date +"%Y%m%d-%s")
+DATE=$(TZ=Asia/Jakarta date +"%Y%m%d")
 
 #Now Its time for other stuffs like cloning, exporting, etc
 
@@ -191,7 +191,7 @@ DATE=$(TZ=Asia/Jakarta date +"%Y%m%d-%s")
 ##------------------------------------------------------##
 
 exports() {
-	KBUILD_BUILD_USER=$AUTHOR
+	KBUILD_BUILD_USER=DHMPT.
 	SUBARCH=$ARCH
 
 	if [ $COMPILER = "clang" ]
@@ -287,7 +287,7 @@ build_kernel() {
 
 	msg "|| Started Compilation ||"
 	make -j"$PROCS" O=out \
-		"${MAKE[@]}" 2>&1 | tee error.log
+		"${MAKE[@]}" 2>&1 | tee build.log
 
 		BUILD_END=$(date +"%s")
 		DIFF=$((BUILD_END - BUILD_START))
@@ -299,7 +299,7 @@ build_kernel() {
 		else
 		if [ "$PTTG" = 1 ]
  			then
-				tg_post_build "error.log" "<b>Build failed to compile after $((DIFF / 60)) minute(s) and $((DIFF % 60)) seconds</b>"
+				tg_post_build "build.log" "<b>Build failed to compile after $((DIFF / 60)) minute(s) and $((DIFF % 60)) seconds</b>"
 			fi
 		fi
 	
@@ -346,7 +346,7 @@ build_kernel
 
 if [ $LOG_DEBUG = "1" ]
 then
-	tg_post_build "error.log" "$CHATID" "Debug Mode Logs"
+	tg_post_build "build.log" "$CHATID" "Debug Mode Logs"
 fi
 
 ##----------------*****-----------------------------##
