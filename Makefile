@@ -628,7 +628,7 @@ KBUILD_CFLAGS	+= $(CLANG_FLAGS)
 KBUILD_AFLAGS	+= $(CLANG_FLAGS)
 endif
 
-ifdef CONFIG_GCC_GRAPHITE
+ifdef ($(cc-name),gcc)
 KBUILD_CFLAGS	+= -fgraphite-identity -floop-nest-optimize
 endif
 
