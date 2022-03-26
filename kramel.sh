@@ -47,7 +47,7 @@ KERNEL_DIR="$(pwd)"
 BASEDIR="$(basename "$KERNEL_DIR")"
 
 # The name of the Kernel, to name the ZIP
-ZIPNAME="UGHTEA-PELT-GCC"
+ZIPNAME="UGHTEA"
 
 # Build Author
 # Take care, it should be a universal and most probably, case-sensitive
@@ -68,7 +68,7 @@ DEFCONFIG=platina_defconfig
 
 # Specify compiler. 
 # 'clang' or 'gcc'
-COMPILER=gcc
+COMPILER=clang
 
 # Specify linker.
 # 'ld.lld' (default)
@@ -141,7 +141,7 @@ then
 	if [ "$DRONE" ]
 	then
 		export KBUILD_BUILD_VERSION=$DRONE_BUILD_NUMBER
-		export KBUILD_BUILD_HOST=MejikomCode
+		export KBUILD_BUILD_HOST=LenoboA369i
 		export CI_BRANCH=$DRONE_BRANCH
 		export BASEDIR=$DRONE_REPO_NAME # overriding
 		export SERVER_URL="${DRONE_SYSTEM_PROTO}://${DRONE_SYSTEM_HOSTNAME}/${AUTHOR}/${BASEDIR}/${KBUILD_BUILD_VERSION}"
